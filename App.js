@@ -10,6 +10,7 @@ import About from "./src/components/About";
 import Error from "./src/components/Error";
 import Contact from "./src/components/Contact";
 import Cart from "./src/components/Cart";
+import RestaurantMenu from "./src/components/RestaurantMenu";
 
 const App = () => {
   return (
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/:restaurantId",
+        element: <RestaurantMenu />,
       },
     ],
   },
