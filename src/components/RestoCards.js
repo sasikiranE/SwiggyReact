@@ -12,11 +12,12 @@ const RestoCards = () => {
     );
 
     const data = await result.json();
-    setRestaurants(
-      data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(
+    console.log(data);
+    const resList =
+      data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(
         (res) => res?.info
-      )
-    );
+      );
+    setRestaurants(resList ?? []);
   };
 
   useEffect(() => {

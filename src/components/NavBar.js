@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const NavBar = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <div className="nav-bar">
       <img
@@ -10,8 +12,16 @@ const NavBar = () => {
       <div className="nav-items">
         <div className="nav-item">Offers</div>
         <div className="nav-item">Help</div>
-        <div className="nav-item">Sign In</div>
         <div className="nav-item">Cart</div>
+        <div
+          className="nav-item"
+          typeof="button"
+          onClick={() => {
+            setLoggedIn((prev) => !prev);
+          }}
+        >
+          {loggedIn ? "Sign out" : "Sign In"}
+        </div>
       </div>
     </div>
   );
