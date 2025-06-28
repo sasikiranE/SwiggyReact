@@ -80,3 +80,21 @@ body {
     justify-content: flex-start;
     padding: 20px;
 }
+
+.shimmer-card {
+    width: 260px;
+    height: auto;
+}
+
+.shimmer-card-img {
+    height: 170px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+.shimmer-card-details {
+    height: 100px;
+    background-color: #f1f1f1;
+    margin-top: 10px;
+    border-radius: 10px;
+}

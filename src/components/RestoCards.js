@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 import Card from "./Card";
+import Shimmer from "./Shimmer";
 
 const RestoCards = () => {
-  const [restuarants, setRestaurants] = useState([]);
+  const [restaurants, setRestaurants] = useState([]);
 
   const fetchData = async () => {
     const result = await fetch(
@@ -22,10 +23,14 @@ const RestoCards = () => {
     fetchData();
   }, []);
 
+  if (restaurants.length === 0) {
+    return <Shimmer />;
+  }
+
   return (
     <>
       <div className="card-grid">
-        {restuarants.map((res) => (
+        {restaurants.map((res) => (
           <Card key={res?.id} resInfo={res} />
         ))}
       </div>
