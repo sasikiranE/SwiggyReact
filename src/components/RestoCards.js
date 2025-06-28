@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 
 import Card from "./Card";
 import Shimmer from "./Shimmer";
+import Search from "./Search";
 
 const RestoCards = () => {
-  const [restaurants, setRestaurants] = useState([]);
+  const [allRestaurants, setAllRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   const fetchData = async () => {
     const result = await fetch(
@@ -17,23 +20,38 @@ const RestoCards = () => {
       data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(
         (res) => res?.info
       );
-    setRestaurants(resList ?? []);
+    setAllRestaurants(resList ?? []);
+    setFilteredRestaurants(resList ?? []);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  if (restaurants.length === 0) {
-    return <Shimmer />;
-  }
+  const doSearch = () => {
+    const filtered = allRestaurants.filter((res) => {
+      return res.name.toLowerCase().includes(searchText.toLowerCase());
+    });
+    setFilteredRestaurants(filtered);
+  };
 
   return (
     <>
-      <div className="card-grid">
-        {restaurants.map((res) => (
-          <Card key={res?.id} resInfo={res} />
-        ))}
+      <div className="section-body">
+        <Search
+          value={searchText}
+          onChange={(value) => setSearchText(value)}
+          onSearch={doSearch}
+        />
+        <div className="card-grid">
+          {filteredRestaurants.length === 0 ? (
+            <Shimmer />
+          ) : (
+            filteredRestaurants.map((res) => (
+              <Card key={res?.id} resInfo={res} />
+            ))
+          )}
+        </div>
       </div>
     </>
   );

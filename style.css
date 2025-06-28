@@ -74,12 +74,16 @@ body {
     font-weight: 600;
 }
 
+.section-body {
+    margin: 10px 20px;
+}
+
 .card-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: flex-start;
-    padding: 20px;
+    margin-top: 10px;
 }
 
 .shimmer-card {
@@ -98,4 +102,39 @@ body {
     background-color: #f1f1f1;
     margin-top: 10px;
     border-radius: 10px;
+}
+
+.search-input {
+    border: 1px solid rgb(228, 110, 74);
+    height: 30px;
+    width: 240px;
+    border-radius: 10px;
+    padding: 0 10px;
+    margin-right: 20px;
+    color: rgb(228, 110, 74);
+    font-size: 16px;
+}
+
+.search-input::placeholder {
+    color: rgba(228, 110, 74, 0.6);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: rgb(247, 64, 8);;
+}
+
+.search-btn {
+    background-color: rgb(228, 110, 74);
+    border: none;
+    height: 32px;
+    padding: 5px 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+}
+
+.search-btn:hover {
+    cursor: pointer;
+    background-color: rgba(228, 110, 74, 0.6);
 }

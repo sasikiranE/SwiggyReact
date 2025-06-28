@@ -3,7 +3,7 @@ import ShimmerCard from "./ShimmerCard";
 
 const Shimmer = () => {
   return (
-    <div className="card-grid">
+    <>
       <ShimmerCard />
       <ShimmerCard />
       <ShimmerCard />
@@ -12,7 +12,7 @@ const Shimmer = () => {
       <ShimmerCard />
       <ShimmerCard />
       <ShimmerCard />
-    </div>
+    </>
   );
 };
 
