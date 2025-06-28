@@ -22,6 +22,11 @@ body {
     color: rgb(228, 110, 74);
 }
 
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .logo {
     width: 54px;
     height: 54px;
