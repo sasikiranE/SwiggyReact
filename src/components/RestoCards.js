@@ -44,13 +44,13 @@ const RestoCards = () => {
 
   return (
     <>
-      <div className="section-body">
+      <div className="mx-2.5 my-5">
         <Search
           value={searchText}
           onChange={(value) => setSearchText(value)}
           onSearch={doSearch}
         />
-        <div className="card-grid">
+        <div className="flex flex-wrap gap-5 justify-items-start mt-2">
           {filteredRestaurants.length === 0 ? (
             <Shimmer />
           ) : (
