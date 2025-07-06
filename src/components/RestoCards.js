@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import Card from "./Card";
+import Card, { withVegLabel } from "./Card";
 import Shimmer from "./Shimmer";
 import Search from "./Search";
 import { Link } from "react-router";
@@ -42,6 +42,8 @@ const RestoCards = () => {
     setFilteredRestaurants(filtered);
   };
 
+  const VegCard = withVegLabel(Card);
+
   return (
     <>
       <div className="mx-2.5 my-5">
@@ -56,7 +58,7 @@ const RestoCards = () => {
           ) : (
             filteredRestaurants.map((res) => (
               <Link key={res?.id} to={`/${res?.id}`} className="link">
-                <Card resInfo={res} />
+                {res.veg ? <VegCard resInfo={res} /> : <Card resInfo={res} />}
               </Link>
             ))
           )}

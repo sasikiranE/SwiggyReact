@@ -1,5 +1,3 @@
-import React from "react";
-
 const Card = (props) => {
   const { resInfo } = props;
   const {
@@ -35,3 +33,18 @@ const Card = (props) => {
 };
 
 export default Card;
+
+// HOC - function tbat takes a component and returns a enhanced version of component
+
+export const withVegLabel = (RestoCard) => {
+  return (props) => {
+    return (
+      <div className="relative inline-block">
+        <label className="absolute top-2 left-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-full z-10">
+          Veg
+        </label>
+        <RestoCard {...props} />
+      </div>
+    );
+  };
+};
